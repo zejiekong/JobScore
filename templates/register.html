@@ -34,8 +34,10 @@
         margin: 8px 0;
         border: 1px solid black;
         cursor: pointer;
-        width: 100%;
         border-radius: 10px;
+        text-align: center;
+        height: 40px;
+        width: 80px;
       }
 
       button:hover {
@@ -49,31 +51,81 @@
   </head>
 
   <body>
-    <form action="{{url_for(registration)}}" method="post">
-      <img src="jobscore.png" style="height: 300px; width: 300px" />
+    <form action="{{url_for('registration')}}" method="post">
+      <img src="{{url_for('static',filename='jobscore.png')}}" style="height: 300px; width: 300px" />
       <h1 style="text-decoration: underline">Registration</h1>
 
       <div class="container">
-        <label for="uname"><b>Username</b></label
-        ><br />
-        <input
-          type="text"
-          placeholder="Enter Username"
-          name="uname"
-          required
-        /><br />
-        <label for="psw"><b>Password</b></label
-        ><br />
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="psw"
-          required
-        /><br />
-        <button type="submit" style="height: 40px; width: 80px">
-          Register
-        </button>
+            <div id="cred">
+                <label for="uname"><b>Username</b></label
+                ><br />
+                <input
+                type="text"
+                placeholder="Enter Username"
+                name="uname"
+                required
+                /><br />
+                <label for="psw"><b>Password</b></label
+                ><br />
+                <input
+                type="password"
+                placeholder="Enter Password"
+                name="psw"
+                required
+                /><br />
+            </div>
+
+        <h1 style="text-decoration: underline">Detail</h1>
+        <div class="container">
+            <label for="fullname"><b>Full Name</b></label
+            ><br />
+            <input
+              type="text"
+              placeholder="Enter Full Name"
+              name="fullname"
+              required
+            /><br />
+            <label for="loca"><b>Location</b></label
+            ><br />
+            <input
+              type="text"
+              placeholder="Enter Location"
+              name="loca"
+              required
+            /><br />
+            <label for="salary"><b>Desired Salary</b></label
+            ><br />
+            <input
+                type="text"
+                placeholder="Enter Desired Salary"
+                name="salary"
+                required
+            /><br />
+            <label for="interest"><b>Interest</b></label
+                ><br />
+                <input
+                    type="text"
+                    placeholder="Enter Interest"
+                    name="interest"
+                    required
+                /><br />
+            <p style="font-size:small">**Interest should be keyword/phrase separated by commas. Maximum 10.**</p>
+            <br>
+            <button
+            type="submit"
+            style="text-align: center; height: 40px; width: 80px"
+            >
+            Register</button
+            ><br />
+            <br />
       </div>
     </form>
   </body>
+  <script>
+    var error = {{error|tojson}}
+    if(error != "None"){
+        error_text = document.createTextNode(error)
+        document.getElementById("cred").appendChild(error_text)
+    }
+  </script>
 </html>
