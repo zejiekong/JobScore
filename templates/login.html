@@ -45,8 +45,15 @@
         padding: 3px;
       }
     </style>
+    <script>
+      var error = {{error|tojson}}
+      if(error != "None"){
+          error_text = document.createTextNode(error)
+          document.getElementById("body").appendChild(error_text)
+      }
+    </script>
   </head>
-  <body>
+  <body id="body">
     <form action="{{url_for('login')}}" method="post">
       <img
         src="{{url_for('static',filename='jobscore.png')}}"
@@ -79,11 +86,4 @@
       </div>
     </form>
   </body>
-  <script>
-    var error = {{error|tojson}}
-    if(error != "None"){
-        error_text = document.createTextNode(error)
-        document.getElementById("body").appendChild(error_text)
-    }
-  </script>
 </html>
