@@ -83,12 +83,12 @@
         <input type="submit" onclick="On_Click()" />
       </form> -->
       <iframe
-        src="resume.pdf"
+        src="{{url_for('static',filename='resume.pdf')}}"
         width="1000"
         height="600"
         style="margin: 0 auto; display: block"
       ></iframe>
-      <img
+      <!-- <img
         id="word"
         src="{{url_for('static',filename='4.png')}}"
         style="
@@ -109,7 +109,7 @@
           bottom: 0px;
           right: 0px;
         "
-      />
+      /> -->
     </div>
   </body>
   <script>

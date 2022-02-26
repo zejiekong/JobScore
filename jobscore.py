@@ -1,6 +1,6 @@
 from flask import Flask,render_template,redirect,url_for,request,session
 from flask_pymongo import PyMongo
-
+#from controller.resume_parser_manager import parse_file
 app = Flask(__name__)
 
 # Set the secret key to some random bytes. Keep this really secret!
@@ -144,10 +144,15 @@ if __name__ == "__main__":
     user = User()
     job = Job()
     job_list = []
-    for i in list(job.get_all()):
+    for i in list(job.get_all()): #clean data to extract important info
         job_dict = {}
         for x in i:
             if x in ['link','title','company','place','description']:
                 job_dict[x] = i[x]
         job_list.append(job_dict)
+    # resume_parsed = parse_file("/templates/resume.pdf")
+    # print(resume_parsed)
+    # resume_list = []
+    # for i in resume_parsed:
+    #     resume_list.append(resume_parsed[i])
     app.run()   
