@@ -51,8 +51,8 @@
   </head>
 
   <body>
-    <form action="{{url_for(registration)}}" method="post">
-      <img src="jobscore.png" style="height: 300px; width: 300px" />
+    <form action="{{url_for('registration')}}" method="post">
+      <img src="{{url_for('static',filename='jobscore.png')}}" style="height: 300px; width: 300px" />
       <h1 style="text-decoration: underline">Registration</h1>
 
       <div class="container">
