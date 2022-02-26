@@ -127,7 +127,7 @@ def home():
 
 @app.route("/scoring",methods=["GET","POST"])
 def scoring():
-    return render_template("scoring.html")
+    return render_template("scoring.html",jobs = job_list)
 
 # @app.route('/logout')
 # def logout():
@@ -139,6 +139,11 @@ if __name__ == "__main__":
     mongo = PyMongo(app)
     user = User()
     job = Job()
-    
-    print(list(job.get_all()))
+    job_list = []
+    for i in list(job.get_all()):
+        job_dict = {}
+        for x in i:
+            if x in ['link','title','company','place','description']:
+                job_dict[x] = i[x]
+        job_list.append(job_dict)
     app.run()   
