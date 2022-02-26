@@ -78,11 +78,18 @@
     <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
     <div id="main">
       <br />
-      <form id="form_resume" action="">
+      <!-- <form id="form_resume" action="">
         <input type="file" id="myFile" name="filename" />
         <input type="submit" onclick="On_Click()" />
-      </form>
+      </form> -->
+      <iframe
+        src="resume.pdf"
+        width="1000"
+        height="600"
+        style="margin: 0 auto; display: block"
+      ></iframe>
       <img
+        id="word"
         src="{{url_for('static',filename='4.png')}}"
         style="
           height: 400px;
@@ -120,12 +127,14 @@
       document.body.style.backgroundColor = "white";
     }
 
-    function On_Click() {
-      var form_resume = document.getElementById("form_resume");
-      form_resume.remove();
-      var frame = document.createElement("iframe");
-      frame.src = "resume.pdf";
-      document.getElementId("body").appendChild(frame);
-    }
+    // function On_Click() {
+    //   var form_resume = document.getElementById("form_resume");
+    //   form_resume.remove();
+    //   var word = document.getElementById("word");
+    //   word.romove();
+    //   var frame = document.createElement("a");
+    //   frame.href = "4.png";
+    //   document.getElementId("body").appendChild(frame);
+    // }
   </script>
 </html>
