@@ -21,13 +21,28 @@ def login():
 
 @app.route("/registration",methods=["GET","POST"])
 def registration():
-    # if request.method == "POST":
-    #     #register user credentials
-    # else:
-    return render_template("register.html")
+    if request.method == "POST":
+        if request.form["uname"] in #check exisiting or not
+            error = "username already exists"
+            return render_template("register.html",error="None")
+        else:
+            #write into database
+            request.form["uname"]
+            request.form["psw"]
+            request.form["fullname"]
+            request.form["loca"]
+            request.form["salary"]
+            request.form["interest"]
+            return redirect(url_for('login'))
+        #register user credentials
+    else:
+        return render_template("register.html",error="None")
 
-@app.route("/home")
-def home():
+# @app.route("/home",methods=["GET","POST"])
+# def home():
+#     if request.method == "POST":
+#     else:
+#         return render_template("home.html")
 
 @app.route('/logout')
 def logout():

@@ -56,22 +56,24 @@
       <h1 style="text-decoration: underline">Registration</h1>
 
       <div class="container">
-        <label for="uname"><b>Username</b></label
-        ><br />
-        <input
-          type="text"
-          placeholder="Enter Username"
-          name="uname"
-          required
-        /><br />
-        <label for="psw"><b>Password</b></label
-        ><br />
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="psw"
-          required
-        /><br />
+            <div id="cred">
+                <label for="uname"><b>Username</b></label
+                ><br />
+                <input
+                type="text"
+                placeholder="Enter Username"
+                name="uname"
+                required
+                /><br />
+                <label for="psw"><b>Password</b></label
+                ><br />
+                <input
+                type="password"
+                placeholder="Enter Password"
+                name="psw"
+                required
+                /><br />
+            </div>
 
         <h1 style="text-decoration: underline">Detail</h1>
         <div class="container">
@@ -116,8 +118,14 @@
             Register</button
             ><br />
             <br />
-        <!-- <img src="binocular.png" style="width: 20%; height: auto" /> -->
       </div>
     </form>
   </body>
+  <script>
+    var error = {{error|tojson}}
+    if(error != "None"){
+        error_text = document.createTextNode(error)
+        document.getElementById("cred").appendChild(error_text)
+    }
+  </script>
 </html>
