@@ -129,6 +129,10 @@ def home():
 def scoring():
     return render_template("scoring.html",jobs = job_list)
 
+@app.route("/resume",methods=["GET","POST"])
+def resume():
+    return render_template("resume.html")
+
 # @app.route('/logout')
 # def logout():
 #     # remove the username from the session if it's there
