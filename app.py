@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 import model.user
 import model.education
+import model.job
 
 @app.route('/')
 def index():
