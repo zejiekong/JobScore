@@ -1,6 +1,5 @@
-from app import app
-import json
-from flask import request
+#from app import app
+#from flask import request
 
 from model.database import mongo
 
@@ -36,46 +35,46 @@ class User:
     def delete_many(self, user_dict):
         self.user_dao.delete_many(user_dict)
 
-@app.route('/demo')
-def demo():
-    user = User()
-    print("create user oong")
-    user_dict = {
-        "username": "oong",
-        "full_name": "Oong Jie Xiang",
-        "email": "oongjiexiang@yahoo.com",
-        "password": "this will fail"
-    }
-    user.create(user_dict)
+# @app.route('/demo')
+# def demo():
+#     user = User()
+#     print("create user oong")
+#     user_dict = {
+#         "username": "oong",
+#         "full_name": "Oong Jie Xiang",
+#         "email": "oongjiexiang@yahoo.com",
+#         "password": "this will fail"
+#     }
+#     user.create(user_dict)
 
-    print("get user oong")
-    print(user.get({"username": "oong"}))
+#     print("get user oong")
+#     print(user.get({"username": "oong"}))
 
-    print("update user oong to jie")
-    updated_user_dict = {
-        "username": "jie",
-        "full_name": "Oong",
-        "email": "oongjiexiang@gmail.com",
-        "password": "this will not fail"
-    }
-    user.update({"username": "oong"}, updated_user_dict)
+#     print("update user oong to jie")
+#     updated_user_dict = {
+#         "username": "jie",
+#         "full_name": "Oong",
+#         "email": "oongjiexiang@gmail.com",
+#         "password": "this will not fail"
+#     }
+#     user.update({"username": "oong"}, updated_user_dict)
 
-    print("create user jack")
-    user_dict = {
-        "username": "jack",
-        "full_name": "Jack Chong",
-        "email": "jack@gmail.com",
-        "password": "this will not fail"
-    }
-    user.create(user_dict)
+#     print("create user jack")
+#     user_dict = {
+#         "username": "jack",
+#         "full_name": "Jack Chong",
+#         "email": "jack@gmail.com",
+#         "password": "this will not fail"
+#     }
+#     user.create(user_dict)
 
-    print("get all users")
-    print(user.get_all())
+#     print("get all users")
+#     print(user.get_all())
 
-    print("delete user jack")
-    user.delete({"username": "jack"})
+#     print("delete user jack")
+#     user.delete({"username": "jack"})
 
-    print("get all users again")
-    print(user.get_all())
+#     print("get all users again")
+#     print(user.get_all())
 
-    return "ok"
+#     return "ok"
