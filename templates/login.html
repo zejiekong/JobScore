@@ -79,4 +79,11 @@
       </div>
     </form>
   </body>
+  <script>
+    var error = {{error|tojson}}
+    if(error != "None"){
+        error_text = document.createTextNode(error)
+        document.getElementById("body").appendChild(error_text)
+    }
+  </script>
 </html>
