@@ -34,8 +34,10 @@
         margin: 8px 0;
         border: 1px solid black;
         cursor: pointer;
-        width: 100%;
         border-radius: 10px;
+        text-align: center;
+        height: 40px;
+        width: 80px;
       }
 
       button:hover {
@@ -70,9 +72,41 @@
           name="psw"
           required
         /><br />
-        <button type="submit" style="height: 40px; width: 80px">
-          Register
-        </button>
+
+        <h1 style="text-decoration: underline">Detail</h1>
+        <div class="container">
+            <label for="fullname"><b>Full Name</b></label
+            ><br />
+            <input
+              type="text"
+              placeholder="Enter Full Name"
+              name="fullname"
+              required
+            /><br />
+            <label for="loca"><b>Location</b></label
+            ><br />
+            <input
+              type="text"
+              placeholder="Enter Location"
+              name="loca"
+              required
+            /><br />
+            <label for="salary"><b>Desired Salary</b></label
+            ><br />
+            <input
+                type="text"
+                placeholder="Enter Desired Salary"
+                name="salary"
+                required
+            /><br />
+            <button
+            type="submit"
+            style="text-align: center; height: 40px; width: 80px"
+            >
+            Register</button
+            ><br />
+            <br />
+        <!-- <img src="binocular.png" style="width: 20%; height: auto" /> -->
       </div>
     </form>
   </body>
