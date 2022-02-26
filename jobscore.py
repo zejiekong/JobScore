@@ -39,6 +39,38 @@ class User:
     def delete_many(self, user_dict):
         self.user_dao.delete_many(user_dict)
 
+class Job:
+    def __init__(self):
+        self.job_dao = mongo.db.jobs
+    
+
+    def create(self, job_dict):
+        self.job_dao.insert_one(job_dict)
+
+
+    def update(self, job_dict, updated_job):
+        condition = {"job_id": job_dict.get("job_id")}
+        self.job_dao.update_one(condition, {"$set": updated_job})
+
+
+    def get(self, job_dict):
+        condition = {"job_id": job_dict.get('job_id')}
+        job = self.job_dao.find_one(condition)
+        return job
+
+
+    def get_all(self):
+        jobs = self.job_dao.find()
+        return jobs
+
+
+    def delete(self, job_dict):
+        self.job_dao.delete_one(job_dict)
+
+
+    def delete_many(self, job_dict):
+        self.job_dao.delete_many(job_dict)
+
 @app.route("/",methods=["GET","POST"])
 def login():
     if request.method == "POST":
@@ -66,7 +98,8 @@ def registration():
         for i in list(user.get_all()):
             if request.form["uname"] == i["username"]: #check exisiting or not
                 error = "username already exists"
-                return render_template("register.html",error="None")
+                error = {"error":error}
+                return render_template("register.html",error=error)
         
         #write into database
         user_dict = {
@@ -92,6 +125,10 @@ def home():
     # else:
     return render_template("home.html")
 
+@app.route("/scoring",methods=["GET","POST"])
+def scoring():
+    return render_template("scoring.html")
+
 # @app.route('/logout')
 # def logout():
 #     # remove the username from the session if it's there
@@ -101,4 +138,7 @@ def home():
 if __name__ == "__main__":
     mongo = PyMongo(app)
     user = User()
+    job = Job()
+    
+    print(list(job.get_all()))
     app.run()   

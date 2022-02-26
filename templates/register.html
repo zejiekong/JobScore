@@ -119,12 +119,16 @@
             <br />
       </div>
     </form>
+    <br>
   </body>
   <script>
-    var error = {{error|tojson}}
+    var error = {{error|tojson}};
     if(error != "None"){
-        error_text = document.createTextNode(error)
-        document.getElementById("cred").appendChild(error_text)
+      var error_text = document.createTextNode(error);
+      var text = document.createElement("span");
+      text.appendChild(error_text);
+      text.style.color = "red";
+      document.getElementById("body").appendChild(text);
     }
   </script>
 </html>

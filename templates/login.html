@@ -45,13 +45,6 @@
         padding: 3px;
       }
     </style>
-    <script>
-      var error = {{error|tojson}}
-      if(error != "None"){
-          error_text = document.createTextNode(error)
-          document.getElementById("body").appendChild(error_text)
-      }
-    </script>
   </head>
   <body id="body">
     <form action="{{url_for('login')}}" method="post">
@@ -85,5 +78,16 @@
         </a>
       </div>
     </form>
+    <br />
   </body>
+  <script>
+    var error = {{error|tojson}};
+    if(error != "None"){
+        var error_text = document.createTextNode(error);
+        var text = document.createElement("span");
+        text.appendChild(error_text);
+        text.style.color = "red";
+        document.getElementById("body").appendChild(text);
+    }
+  </script>
 </html>
