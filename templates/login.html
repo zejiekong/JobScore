@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Josefin Sans"
+      rel="stylesheet"
+    />
+    <title>Login</title>
+    <style>
+      body {
+        font-family: "Josefin Sans";
+        text-align: center;
+        font-size: large;
+        border: 1px solid #f1f1f1;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 30%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: white;
+        font-family: "Josefin Sans";
+        outline: none;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: 1px solid black;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      button:hover {
+        background-color: grey;
+      }
+
+      .container {
+        padding: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="{{url_for('login')}}" method="post">
+      <img src="jobscore.png" style="height: 300px; width: 300px" />
+
+      <div class="container">
+        <label for="uname"><b>Username</b></label
+        ><br />
+        <input
+          type="text"
+          placeholder="Enter Username"
+          name="username"
+          required
+        /><br />
+        <label for="psw"><b>Password</b></label
+        ><br />
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="psw"
+          required
+        /><br />
+        <button type="submit" name="submit" style="height: 40px; width: 80px">
+          Login</button
+        ><br />
+        <br />
+        <a href="{{url_for('registration')}}" style="font-size: small">
+          Register
+        </a>
+      </div>
+    </form>
+  </body>
+</html>
